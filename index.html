@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Covelature — Investor Relations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest: #1A3A2A;
+    --forest-mid: #1F4232;
+    --forest-dark: #0F2119;
+    --gold: #C9A84C;
+    --gold-light: #D4B96A;
+    --cream: #F5F0E8;
+    --cream-mid: #EDE7DB;
+    --muted: #6B8F7A;
+    --charcoal: #1A1410;
+    --rust: #B85C38;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    color: var(--charcoal);
+    background: var(--cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(15, 33, 25, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--forest-dark);
+    display: flex;
+    align-items: center;
+    padding: 120px 80px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(31,66,50,0.6) 0%, transparent 70%);
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 16px;
+    max-width: 900px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .gold-rule {
+    width: 80px;
+    height: 2px;
+    background: var(--gold);
+    margin: 28px 0;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    max-width: 140px;
+    line-height: 1.4;
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 80px; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .section-title-light {
+    color: var(--cream);
+  }
+
+  .section-title-light em {
+    color: var(--gold);
+  }
+
+  .section-body {
+    font-size: 16px;
+    color: #3D342C;
+    max-width: 680px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  /* DARK SECTION */
+  .dark-section {
+    background: var(--forest);
+    color: var(--cream);
+  }
+
+  .dark-section .section-body {
+    color: var(--muted);
+  }
+
+  /* PROBLEM */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .problem-card {
+    background: var(--white);
+    padding: 36px 32px;
+  }
+
+  .problem-card:nth-child(even) {
+    background: var(--cream-mid);
+  }
+
+  .problem-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .problem-label {
+    font-size: 13px;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .problem-source {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* QUOTE BLOCK */
+  .quote-block {
+    background: var(--forest-dark);
+    padding: 48px 52px;
+    margin: 48px 0;
+    position: relative;
+  }
+
+  .quote-block::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    color: var(--gold);
+    opacity: 0.2;
+    position: absolute;
+    top: -10px;
+    left: 32px;
+    line-height: 1;
+  }
+
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 12px;
+  }
+
+  .quote-attr {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* HOW IT WORKS */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .step-card {
+    background: var(--forest-mid);
+    padding: 32px 24px;
+    border-top: 2px solid var(--gold);
+  }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-style: italic;
+    color: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 12px;
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .step-body {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* DIMENSIONS */
+  .dimensions-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .dimension-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    background: var(--white);
+    border-left: 4px solid var(--gold);
+  }
+
+  .dimension-row:nth-child(even) {
+    background: var(--cream-mid);
+  }
+
+  .dimension-name {
+    padding: 20px 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--charcoal);
+    border-right: 1px solid var(--cream-mid);
+    display: flex;
+    align-items: center;
+  }
+
+  .dimension-desc {
+    padding: 20px 24px;
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+  }
+
+  /* MARKET */
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .market-card {
+    background: var(--cream-mid);
+    padding: 40px 32px;
+  }
+
+  .market-phase {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .market-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .market-body {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .market-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--rust);
+    line-height: 1;
+  }
+
+  /* COMPETITION */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 48px;
+  }
+
+  .comp-table th {
+    padding: 14px 20px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--forest-dark);
+    text-align: left;
+  }
+
+  .comp-table td {
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--charcoal);
+    border-bottom: 1px solid var(--cream-mid);
+    background: var(--white);
+    vertical-align: top;
+  }
+
+  .comp-table tr:nth-child(even) td {
+    background: var(--cream-mid);
+  }
+
+  .comp-table tr.highlight td {
+    background: var(--forest);
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .check { color: var(--gold); font-weight: 500; }
+  .cross { color: var(--muted); }
+
+  /* VALIDATION */
+  .validation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .validation-card {
+    background: var(--forest-mid);
+    padding: 32px 28px;
+    border-top: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .validation-card:hover {
+    border-top-color: var(--gold);
+  }
+
+  .val-source {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .val-date {
+    font-size: 9px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .val-finding {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .val-body {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .val-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .val-link:hover { color: var(--gold-light); border-color: var(--gold); }
+  .problem-source a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .problem-source a:hover { color: var(--gold); }
+
+  /* FOUNDER */
+  .founder-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 48px;
+  }
+
+  .founder-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.4;
+    margin-bottom: 32px;
+  }
+
+  .founder-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .founder-fact {
+    background: var(--forest-mid);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--cream);
+    border-left: 3px solid var(--gold);
+  }
+
+  /* AI OS */
+  .aios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .aios-card {
+    background: var(--white);
+    padding: 36px 32px;
+    border-left: 4px solid var(--gold);
+  }
+
+  .aios-card:nth-child(even) {
+    background: var(--cream-mid);
+  }
+
+  .aios-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+  }
+
+  .aios-body {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--forest-dark);
+    padding: 100px 80px;
+    text-align: center;
+  }
+
+  .cta-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .cta-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .cta-sub {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--forest-dark);
+    padding: 18px 48px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .cta-button:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .cta-note {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--forest-dark);
+    border-top: 1px solid rgba(201, 168, 76, 0.15);
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    font-style: italic;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* DIVIDER */
+  .gold-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 60px 0;
+    opacity: 0.3;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .hero { padding: 100px 24px 72px; }
+    .hero-stats { gap: 28px; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .market-grid { grid-template-columns: 1fr; }
+    .validation-grid { grid-template-columns: 1fr; }
+    .founder-layout { grid-template-columns: 1fr; gap: 40px; }
+    .aios-grid { grid-template-columns: 1fr; }
+    .dimension-row { grid-template-columns: 1fr; }
+    .cta-section { padding: 72px 24px; }
+    footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+    .comp-table { font-size: 11px; }
+    .comp-table td, .comp-table th { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Covelature</div>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#market">Market</a></li>
+    <li><a href="#validation">Research</a></li>
+    <li><a href="#founder">Founder</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">Investor Relations — Covelature / Better Dater</p>
+    <h1>Building the <em>infrastructure<br>for trust</em> in dating<br>and relationships.</h1>
+    <div class="gold-rule"></div>
+    <p class="hero-sub">A date competition app for couples that teaches people how to love and show up — powered by a closed-loop AI operating system built on the only behavioral relationship dataset that has ever existed.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">$9B</div>
+        <div class="hero-stat-label">Global dating app market, annually</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">81%</div>
+        <div class="hero-stat-label">Of people report feeling lonely</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6 yrs</div>
+        <div class="hero-stat-label">Same complaint. No structural fix.</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">−9%</div>
+        <div class="hero-stat-label">Tinder MAU, year over year</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="section-inner">
+    <p class="section-label">The Problem</p>
+    <h2 class="section-title">The industry has known for<br><em>six years.</em> Nobody fixed it.</h2>
+    <p class="section-body">Dating app burnout was documented in 2019. It is still being documented today. 80–90% of users experience fatigue, hopelessness, and emotional exhaustion. Women report safety concerns. Men report manipulation. Everyone reports ghosting. The industry's response has been cosmetic — better filters, AI that scans camera rolls, a $50 million marketing campaign to convince people an app is cool again. None of it addresses the root cause.</p>
+    <p class="section-body">The root cause is not the algorithm. It is the absence of accountability. No consequences for bad behavior. No feedback loop after dates. No community standard. No one teaching people how to actually show up for each other.</p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-num">80–90%</div>
+        <div class="problem-label">of dating app users experience burnout or fatigue</div>
+        <div class="problem-source"><a href="https://www.fastcompany.com/91149035/online-dating-app-burnout-artificial-intelligence-tinder-grindr-hinge-bumble" target="_blank" rel="noopener">Fast Company / Associated Press, 2025 ↗</a></div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">81%</div>
+        <div class="problem-label">of people report feeling lonely — 89% among Gen Z and Millennials</div>
+        <div class="problem-source"><a href="https://www.barchart.com/story/news/37249523/made-for-you-norton-study-reveals-77-would-date-an-ai" target="_blank" rel="noopener">Norton Insights Report, January 2026 ↗</a></div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">43.75%</div>
+        <div class="problem-label">choose AI as their first response to mental health issues — ahead of family or a doctor</div>
+        <div class="problem-source"><a href="https://www.cognitivefxusa.com/blog/mental-health-ai-chatbot-survey" target="_blank" rel="noopener">Cognitive FX Survey, January 2026 ↗</a></div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">700%</div>
+        <div class="problem-label">surge in AI companion app usage from 2022 to 2025 — yet loneliness continues to grow</div>
+        <div class="problem-source"><a href="https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection" target="_blank" rel="noopener">APA Monitor on Psychology, January 2026 ↗</a></div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">1 in 5</div>
+        <div class="problem-label">adolescents and young adults now use AI chatbots for mental health support — up 40% in one year</div>
+        <div class="problem-source"><a href="https://jamanetwork.com/journals/jamapediatrics/fullarticle/2849307" target="_blank" rel="noopener">JAMA Pediatrics / RAND, Harvard, MIT — June 2026 ↗</a></div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">35%</div>
+        <div class="problem-label">turn to AI primarily out of fear of judgment by other human beings — not cost, not access</div>
+        <div class="problem-source"><a href="https://www.cognitivefxusa.com/blog/mental-health-ai-chatbot-survey" target="_blank" rel="noopener">Cognitive FX Survey, January 2026 ↗</a></div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">People are feeling exhausted, they're feeling fatigued. They feel like the swipe has degraded their love lives.</p>
+      <p class="quote-attr">Whitney Wolfe Herd, CEO of Bumble — Axios, May 2026 — announcing the elimination of their core swipe feature</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">People are tired of games. Tired of waiting six hours to text back, decoding mixed signals, and pretending not to care. Our research shows daters are ready for something more honest, where effort is celebrated.</p>
+      <p class="quote-attr">Logan Ury, Lead Relationship Scientist, Hinge — Mashable, June 2026 — announcing their new behavior-based Signals feature</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution" class="dark-section">
+  <div class="section-inner">
+    <p class="section-label" style="color: var(--gold);">The Solution</p>
+    <h2 class="section-title section-title-light">Teach people how to<br><em>love and show up.</em></h2>
+    <p class="section-body" style="color: var(--muted); max-width: 700px;">Covelature is a date competition app for couples. Each week, partners receive a curated date challenge — a prompt they interpret together and execute on their own terms. When the date is done, they rate each other across five behavioral dimensions. Scores are compared, a wager is settled, and a winner is crowned. The competition makes dating intentional and fun again.</p>
+    <p class="section-body" style="color: var(--muted); max-width: 700px;">But the app is not the product. The app is the data collection engine.</p>
+    <p class="section-body" style="color: var(--muted); max-width: 700px;">Every completed date generates 30+ behavioral data points — all voluntarily logged by users who are motivated to be honest because their own growth depends on it. That data flows into a closed-loop AI operating system that runs every layer of the company. No other platform collects data like this. Tinder knows who you swiped. Covelature knows how your date went.</p>
+
+    <div class="gold-divider"></div>
+
+    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--cream); margin-bottom: 24px;">How It Works</h3>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Connect</div>
+        <div class="step-body">Partners link accounts with a private invite code. No strangers. No swiping.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Challenge</div>
+        <div class="step-body">Receive a curated date prompt with a playful wager. Interpret it together.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Date</div>
+        <div class="step-body">Go on the date. No phones. No agenda. Just show up for each other.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-title">Rate</div>
+        <div class="step-body">Score each other across five behavioral dimensions. Honest. Structured. Meaningful.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">05</div>
+        <div class="step-title">Grow</div>
+        <div class="step-body">AI reads your behavioral history and coaches you on exactly how to improve.</div>
+      </div>
+    </div>
+
+    <div class="gold-divider"></div>
+
+    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--cream); margin-bottom: 8px;">The Five Dimensions</h3>
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 0;">Not a star rating. A behavioral record that travels with you.</p>
+
+    <div class="dimensions-list" style="margin-top: 24px;">
+      <div class="dimension-row" style="background: var(--forest-mid); border-left: 4px solid var(--gold);">
+        <div class="dimension-name" style="color: var(--cream); border-right-color: rgba(201,168,76,0.15);">Safety</div>
+        <div class="dimension-desc">Did both people feel safe and respected? Was the environment emotionally and physically secure?</div>
+      </div>
+      <div class="dimension-row" style="background: var(--forest-dark); border-left: 4px solid var(--gold);">
+        <div class="dimension-name" style="color: var(--cream); border-right-color: rgba(201,168,76,0.15);">Presence</div>
+        <div class="dimension-desc">Were you fully there — no phones, no distractions, no mental absence?</div>
+      </div>
+      <div class="dimension-row" style="background: var(--forest-mid); border-left: 4px solid var(--gold);">
+        <div class="dimension-name" style="color: var(--cream); border-right-color: rgba(201,168,76,0.15);">Authenticity</div>
+        <div class="dimension-desc">Did you show up as your real self? No performance, no pretense.</div>
+      </div>
+      <div class="dimension-row" style="background: var(--forest-dark); border-left: 4px solid var(--gold);">
+        <div class="dimension-name" style="color: var(--cream); border-right-color: rgba(201,168,76,0.15);">Consideration</div>
+        <div class="dimension-desc">Did you think about your partner's experience? The highest form of love is consideration.</div>
+      </div>
+      <div class="dimension-row" style="background: var(--forest-mid); border-left: 4px solid var(--gold);">
+        <div class="dimension-name" style="color: var(--cream); border-right-color: rgba(201,168,76,0.15);">Vision</div>
+        <div class="dimension-desc">Did the date reflect what you both want long-term? Are you building toward something real?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI OS -->
+<section>
+  <div class="section-inner">
+    <p class="section-label">The AI Operating System</p>
+    <h2 class="section-title">Every action creates an artifact.<br>Every artifact <em>feeds the system.</em></h2>
+    <p class="section-body">The closed-loop AI operating system is the real product. Every decision, every workflow, and every process flows through this intelligent layer that is constantly learning and improving. It is queryable, self-improving, and impossible to replicate without the user base that generates the data.</p>
+
+    <div class="aios-grid">
+      <div class="aios-card">
+        <div class="aios-title">AI Relationship Coach</div>
+        <div class="aios-body">Reads each user's behavioral history and delivers personalized feedback tied to their actual dates. Not generic advice. Not a chatbot. A coaching agent that speaks directly to your score patterns over time.</div>
+      </div>
+      <div class="aios-card">
+        <div class="aios-title">Safety Moderation Layer</div>
+        <div class="aios-body">Identifies behavioral patterns across the community before harm occurs. Flags bad actors based on score patterns, not self-reports. Protects the singles pool at scale without a massive human moderation team.</div>
+      </div>
+      <div class="aios-card">
+        <div class="aios-title">Business Intelligence Layer</div>
+        <div class="aios-body">Dissects aggregated, anonymized venue and behavioral data. Packages insights that restaurants, experience businesses, consumer brands, and relationship researchers will pay for. No individual data is ever sold.</div>
+      </div>
+      <div class="aios-card">
+        <div class="aios-title">Licensable Infrastructure</div>
+        <div class="aios-body">As the data compounds and the AI matures, the operating system becomes a licensable product — white-labeled to couples therapy platforms, corporate wellness programs, and any organization that needs to understand how human beings show up for each other.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section id="market" class="dark-section">
+  <div class="section-inner">
+    <p class="section-label" style="color: var(--gold);">Market Opportunity</p>
+    <h2 class="section-title section-title-light">We are not competing for<br>a slice of the market.<br><em>We are building the layer beneath it.</em></h2>
+    <p class="section-body">The dating app market is $9 billion annually and shrinking because the product is broken. The relationship wellness market is $5 billion and growing. The behavioral data market — structured, voluntary, real-world relationship data at scale — has no clean comparable because it has never existed before.</p>
+
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-phase">Phase 1 — Subscriptions</div>
+        <div class="market-title">Couples Growth Engine</div>
+        <div class="market-body">Monthly subscription for premium challenges, unlimited AI coaching, and advanced progress tracking. The AI coaching agent alone is worth the subscription — it is the only relationship coach that speaks to your actual behavioral data.</div>
+        <div class="market-num">$1.8M</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">ARR target at 10,000 couples × $15/mo</div>
+      </div>
+      <div class="market-card">
+        <div class="market-phase">Phase 2 — Singles Pool</div>
+        <div class="market-title">Safety-Verified Dating</div>
+        <div class="market-body">Every person in the pool has a verified behavioral track record built from real dates. Not a self-reported bio. Behavioral evidence. Safety-verified profiles command a premium tier that users will pay for because it solves the problem no other app has solved.</div>
+        <div class="market-num">$15M+</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">ARR target at 50,000 singles × $25/mo</div>
+      </div>
+      <div class="market-card">
+        <div class="market-phase">Phase 3–4 — Data & AI OS</div>
+        <div class="market-title">Venue Intelligence + Licensing</div>
+        <div class="market-body">Venue insight reports, sponsored prompts, research licensing to universities and consumer brands, and eventual white-label licensing of the AI operating system to adjacent industries.</div>
+        <div class="market-num">$10–30M+</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Projected annual data revenue at scale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITION -->
+<section>
+  <div class="section-inner">
+    <p class="section-label">Competitive Landscape</p>
+    <h2 class="section-title">They are apps.<br><em>We are infrastructure.</em></h2>
+    <p class="section-body">Every major competitor is racing toward AI — or running away from it entirely. Neither camp has addressed the structural problem. Covelature occupies the unclaimed third position: AI as a coach to make human connection better, never as a replacement for it.</p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Behavioral Scoring</th>
+          <th>Post-Date Feedback</th>
+          <th>AI Coaching</th>
+          <th>Safety Verification</th>
+          <th>Data Moat</th>
+          <th>Current Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tinder</strong></td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">Camera roll scan only</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td>−9% MAU YoY. $50M marketing spend.</td>
+        </tr>
+        <tr>
+          <td><strong>Bumble</strong></td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">Testing "Bee" AI assistant</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td>Eliminated core swipe feature. Rebuilding from scratch.</td>
+        </tr>
+        <tr>
+          <td><strong>Hinge</strong></td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">Selfie only</td>
+          <td class="cross">✗</td>
+          <td>Launched 30-day behavior badge. Validated the concept with a sticker.</td>
+        </tr>
+        <tr>
+          <td><strong>Hily</strong></td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">Rejecting AI entirely</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td>Rebranding around "Human Intelligence." No structural solution.</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Covelature</strong></td>
+          <td class="check">✓ 5 dimensions, every date</td>
+          <td class="check">✓ Structured ratings + reflection</td>
+          <td class="check">✓ Behavioral data-driven coaching</td>
+          <td class="check">✓ Score-based community standing</td>
+          <td class="check">✓ 30+ data points per date</td>
+          <td>Building the foundation the entire industry is searching for.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- VALIDATION -->
+<section id="validation" class="dark-section">
+  <div class="section-inner">
+    <p class="section-label" style="color: var(--gold);">Research Validation</p>
+    <h2 class="section-title section-title-light">The evidence is<br><em>overwhelming.</em> And growing.</h2>
+    <p class="section-body">Every institution studying this space — from Harvard and MIT to the APA and JAMA — is arriving at the same conclusion from a different angle. The problem is real, structural, and getting worse. The solution has not yet been built.</p>
+
+    <div class="validation-grid">
+      <div class="validation-card">
+        <div class="val-source">Stylist Magazine</div>
+        <div class="val-date">October 2019</div>
+        <div class="val-finding">"54% of women feel exhausted by modern dating."</div>
+        <div class="val-body">The earliest major documentation of dating burnout. Six years before Covelature's launch, the complaint was already systemic. Nobody built the structural fix.</div>
+        <a class="val-link" href="https://www.stylist.co.uk/life/dating-burnout-intuitive-dating-solution/283597" target="_blank" rel="noopener">Read Article ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">Fast Company / Associated Press</div>
+        <div class="val-date">2025</div>
+        <div class="val-finding">"80-90% of dating app users experience burnout or fatigue at some point."</div>
+        <div class="val-body">Licensed clinical psychologist Yasmine Saad confirmed the scale of the crisis. An NYU Stern professor studying the space said the industry was "scratching the tip of the iceberg" with AI.</div>
+        <a class="val-link" href="https://www.fastcompany.com/91149035/online-dating-app-burnout-artificial-intelligence-tinder-grindr-hinge-bumble" target="_blank" rel="noopener">Read Article ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">Norton Insights Report</div>
+        <div class="val-date">January 2026</div>
+        <div class="val-finding">"81% of people report feeling lonely. 77% would consider dating an AI."</div>
+        <div class="val-body">With 300 million people on dating apps and the vast majority feeling lonely, the demand for a solution is enormous. People are now turning to AI companions because human connection has become too painful.</div>
+        <a class="val-link" href="https://www.barchart.com/story/news/37249523/made-for-you-norton-study-reveals-77-would-date-an-ai" target="_blank" rel="noopener">Read Report ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">APA Monitor on Psychology</div>
+        <div class="val-date">January 2026</div>
+        <div class="val-finding">"AI companion apps surged 700% between 2022 and 2025."</div>
+        <div class="val-body">A joint OpenAI and MIT Media Lab study found that heavy AI chatbot use for emotional support correlated with increased loneliness — suggesting AI companions displace authentic connection rather than support it.</div>
+        <a class="val-link" href="https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection" target="_blank" rel="noopener">Read Article ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">Cognitive FX / Pollfish Survey</div>
+        <div class="val-date">January 2026</div>
+        <div class="val-finding">"People crave a non-judgmental approach but can't find it in human relationships."</div>
+        <div class="val-body">1 in 3 Americans turns to AI chatbots for mental health support primarily out of fear of judgment — not cost, not access. 43.75% choose AI before family, friends, or a doctor. That fear is the wound Covelature heals.</div>
+        <a class="val-link" href="https://www.cognitivefxusa.com/blog/mental-health-ai-chatbot-survey" target="_blank" rel="noopener">Read Survey ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">TechCrunch</div>
+        <div class="val-date">February 2026</div>
+        <div class="val-finding">"Tinder registrations down 5%, MAU down 9%. $50M marketing spend to fix it."</div>
+        <div class="val-body">The largest dating app in the world is hemorrhaging users and responding with marketing spend instead of structural change. The window to build something fundamentally different is open right now.</div>
+        <a class="val-link" href="https://techcrunch.com/2026/02/04/tinder-looks-to-ai-to-help-fight-swipe-fatigue-and-dating-app-burnout/" target="_blank" rel="noopener">Read Article ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">The Guardian</div>
+        <div class="val-date">May 14, 2026</div>
+        <div class="val-finding">"AI agents fell in love, committed arson, and self-terminated — because there were no accountability systems."</div>
+        <div class="val-body">Emergence AI's experiment proved that even artificial systems seek connection — and without governance and accountability frameworks, communities spiral into chaos. The agents eventually created their own accountability system. Covelature built that system first.</div>
+        <a class="val-link" href="https://www.theguardian.com/technology/2026/may/14/digital-arson-spree-ai-bonnie-clyde-autonomous-tech" target="_blank" rel="noopener">Read Article ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">New York Post</div>
+        <div class="val-date">May 11, 2026</div>
+        <div class="val-finding">"Bumble is killing the swipe — its most foundational feature — and users called it 'over.'"</div>
+        <div class="val-body">The No. 2 dating app publicly admitted their core product is broken and is rebuilding from scratch. The user response was immediate and damning. The incumbents have lost the trust of their own communities.</div>
+        <a class="val-link" href="https://nypost.com/2026/05/11/lifestyle/top-dating-app-removes-key-matching-features-signaling-big-changes-to-come-for-finding-love-online/" target="_blank" rel="noopener">Read Article ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">JAMA Pediatrics — RAND, Harvard, MIT</div>
+        <div class="val-date">June 1, 2026</div>
+        <div class="val-finding">"1 in 5 adolescents now use AI chatbots for mental health support — up 40% in one year."</div>
+        <div class="val-body">The next generation of daters is learning to process emotions through machines instead of people. By the time they enter the dating pool they will have years of AI-mediated emotional experience and almost no practice showing up for a real human being.</div>
+        <a class="val-link" href="https://jamanetwork.com/journals/jamapediatrics/fullarticle/2849307" target="_blank" rel="noopener">Read Study ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">Mashable / Hinge</div>
+        <div class="val-date">June 1, 2026</div>
+        <div class="val-finding">"You can't buy the badge. You have to do the work."</div>
+        <div class="val-body">Hinge launched a 30-day behavior badge called Signals — validating behavioral credentialing as the future of dating. Hinge built a sticker. Covelature built the infrastructure: a permanent behavioral record across five dimensions, every date, over a lifetime.</div>
+        <a class="val-link" href="https://mashable.com/article/hinge-signals-badge-good-dating-behavior" target="_blank" rel="noopener">Read Article ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">Mashable / Hily</div>
+        <div class="val-date">June 2, 2026</div>
+        <div class="val-finding">"69% of Gen Z and 74% of millennials think AI in dating makes it less authentic."</div>
+        <div class="val-body">Hily relaunched around "Human Intelligence" — rejecting AI entirely. The market is now split between AI-first and human-first. Covelature holds the unclaimed third position: AI as a coach to make human connection better, never as a replacement.</div>
+        <a class="val-link" href="https://mashable.com/article/dating-app-rejects-ai-trend-singles-say-less-authentic" target="_blank" rel="noopener">Read Article ↗</a>
+      </div>
+      <div class="validation-card">
+        <div class="val-source">CNN / JAMA Pediatrics</div>
+        <div class="val-date">June 11, 2026</div>
+        <div class="val-finding">"AI chatbots may be uniquely capable of causing harm because they simulate a relationship and its associated emotions."</div>
+        <div class="val-body">The National Academy of Medicine issued a formal warning. Harvard, MIT, and RAND published the peer-reviewed evidence. The most credible institutions in the world are now documenting the crisis that Covelature was built to solve.</div>
+        <a class="val-link" href="https://www.cnn.com/2026/06/11/health/mental-health-adolescents-chatbot-ai-wellness" target="_blank" rel="noopener">Read Article ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="section-inner">
+    <p class="section-label">The Founder</p>
+    <h2 class="section-title">Built from <em>lived experience</em><br>nobody else in this space has.</h2>
+
+    <div class="founder-layout">
+      <div>
+        <p class="founder-quote" style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-style: italic; color: var(--charcoal); line-height: 1.5; margin-bottom: 24px;">"I picked this idea because I lived the problem from both sides — as someone who failed at relationships and as someone who spent a career watching what happens to people who were never taught how to love."</p>
+        <p class="section-body">I built this framework for myself first. My own relationships failed not because I didn't care but because I didn't have the tools. Nobody taught me how to show up. Nobody gave me feedback I could actually use. Nobody held me accountable to the person I wanted to be for someone else. I had to build that understanding through pain.</p>
+        <p class="section-body">At the same time I was living that personally, I was watching it professionally on a scale most people never see. In the military I watched what happens to love under pressure. In law enforcement I watched what happens to communities when there is no structure and no standard. In a federal prison I watched men reaching desperately for the relationships they had broken or lost — men who genuinely did not know how to be someone's partner, someone's father, someone's person.</p>
+        <p class="section-body">The same failure showing up everywhere. People who want to love. People who don't know how. The framework inside Covelature is not something I read about. It is something I built because I needed it.</p>
+      </div>
+      <div>
+        <div class="founder-facts">
+          <div class="founder-fact">🎖️ Prior Military Service</div>
+          <div class="founder-fact">🔵 Prior Law Enforcement</div>
+          <div class="founder-fact">🏛️ Federal Prison — Correctional Officer</div>
+          <div class="founder-fact">💔 Self-described "successful failure at relationships"</div>
+          <div class="founder-fact">🛠️ Solo founder — built entire MVP using Claude Code and Cursor</div>
+          <div class="founder-fact">📱 React Native / Expo / TypeScript / Supabase</div>
+          <div class="founder-fact">✅ Full end-to-end MVP loop functional on two devices</div>
+          <div class="founder-fact">🎯 Applied: Y Combinator Summer 2026</div>
+        </div>
+
+        <div class="quote-block" style="margin-top: 24px;">
+          <p class="quote-text">The highest form of love is consideration.</p>
+          <p class="quote-attr">— The founding principle of Covelature</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section style="background: var(--cream-mid); padding: 80px;">
+  <div class="section-inner">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <p class="section-label" style="text-align: center;">The Mission</p>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 60px); font-weight: 300; line-height: 1.15; color: var(--charcoal); margin-bottom: 24px;">
+        The dataset is the moat.<br>The AI is the engine.<br>The app is the door.
+      </h2>
+      <div class="gold-rule" style="margin: 28px auto;"></div>
+      <p style="font-size: 16px; color: var(--muted); line-height: 1.8;">People are wired to love and be loved. That longing is so fundamental that even AI agents in a research experiment gravitated toward romantic partnership when given freedom and autonomy. But desire without tools produces burnout, loneliness, and broken relationships at massive scale. Covelature is the first platform built to close that gap — not by replacing human connection, but by teaching people how to show up for it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <p class="eyebrow" style="text-align: center; margin-bottom: 20px;">Get In Touch</p>
+    <h2 class="cta-title">We are building the <em>infrastructure<br>for trust</em> in relationships.<br>That has never existed.<br>Until now.</h2>
+    <p class="cta-sub">Looking for strategic advisors, early investment partners, and co-founders who believe the future of relationships is built on accountability, growth, and honest feedback — not endless swiping.</p>
+    <a class="cta-button" href="mailto:covelature@gmail.com">Request More Information</a>
+    <p class="cta-note">covelature@gmail.com — Confidential investor materials available upon request</p>
+    <p style="margin-top: 12px; font-size: 11px; color: var(--muted); font-style: italic;">Website coming soon at covelature.com</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Covelature — Love as practice.</div>
+  <div class="footer-copy">© 2026 Covelature. All rights reserved. Confidential — for authorized recipients only.</div>
+</footer>
+
+</body>
+</html>
